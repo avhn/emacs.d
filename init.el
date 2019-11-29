@@ -28,6 +28,10 @@
   (load-theme 'manoj-dark t))
 
 
-(load "maps")
+(load "keymaps")
 (load "python3")
 (load "modes")
+
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
