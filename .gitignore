@@ -19,6 +19,9 @@ tramp
 /eshell/history
 /eshell/lastdir
 
+# elpy
+elpy
+
 # elpa packages
 /elpa/
 
