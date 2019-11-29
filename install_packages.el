@@ -3,7 +3,8 @@
 
 (package-refresh-contents)
 
-(package-install 'exec-path-from-shell)
+(if (eq system-type 'darwin)
+    (package-install 'exec-path-from-shell))
 (package-install 'elpy)
 
 (save-buffers-kill-emacs)
