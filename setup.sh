@@ -1,19 +1,16 @@
 #!/usr/bin/env bash
-py3venv_dir=$HOME/.emacs.d/.py3venv
+emacs_dir=$HOME/.emacs.d
 
-# copy files
-cp -rf $(dirname $0)/.emacs.d $HOME
+if [[ $(dirname $0) != emacs_dir ]]; then {
+    rm -r emacs_dir
+    ln -s $(dirname $0) emacs_dir
+}
 
-# create virtualenv
-pip3 install virtualenv
-python3 -m virtualenv --python=python3 $py3venv_dir
+function setup_packages() {
+    pip3 install virtualenv --user
+    emacs -nw --load $(dirname $0)/install_packages.el
+}
 
-# set up emacs packages
-emacs -nw --load $(dirname $0)/setup_packages.el
-
-# set up elpy's python dependency packages
-source $py3venv_dir/bin/activate
-pip install jedi rope autopep8 yapf black flake8
-deactivate
+setup_packages()
 
 exit
