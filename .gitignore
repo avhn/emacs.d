@@ -21,6 +21,7 @@ tramp
 
 # elpy
 elpy
+!vendor/elpy
 
 # elpa packages
 /elpa/
