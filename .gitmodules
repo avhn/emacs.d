@@ -1,6 +1,6 @@
-[submodule "vendor/exec-path-from-shell"]
-	path = vendor/exec-path-from-shell
-	url = git@github.com:purcell/exec-path-from-shell
-[submodule "vendor/elpy"]
-	path = vendor/elpy
+[submodule "lisp/vendor/elpy"]
+	path = lisp/vendor/elpy
 	url = git@github.com:jorgenschaefer/elpy
+[submodule "lisp/vendor/exec-path-from-shell"]
+	path = lisp/vendor/exec-path-from-shell
+	url = git@github.com:purcell/exec-path-from-shell

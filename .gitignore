@@ -1,7 +1,3 @@
-### Other ###
-custom.el
-!vendor/elpy
-
 ### Emacs ###
 *~
 \#*\#
@@ -143,3 +139,6 @@ tags
 # Persistent undo
 [._]*.un~
 
+### Other ###
+!lisp/vendor/elpy
+custom.el
