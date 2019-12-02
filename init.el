@@ -1,5 +1,11 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
+
+;; enable MELPA
+(require 'package)
+(add-to-list 'package-archives
+             (cons "melpa" "https://melpa.org/packages/") t)
 (package-initialize)
+
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
@@ -33,5 +39,6 @@
 (load "modes")
 
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+(when (file-exists-p custom-file)
+  (load custom-file))
 

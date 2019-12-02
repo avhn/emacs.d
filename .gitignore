@@ -1,3 +1,7 @@
+### Other ###
+custom.el
+!vendor/elpy
+
 ### Emacs ###
 *~
 \#*\#
@@ -21,7 +25,6 @@ tramp
 
 # elpy
 elpy
-!vendor/elpy
 
 # elpa packages
 /elpa/
@@ -139,3 +142,4 @@ Sessionx.vim
 tags
 # Persistent undo
 [._]*.un~
+
