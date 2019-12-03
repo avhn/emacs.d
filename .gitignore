@@ -140,5 +140,4 @@ tags
 [._]*.un~
 
 ### Other ###
-!lisp/vendor/elpy
 custom.el
