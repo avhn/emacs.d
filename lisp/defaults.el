@@ -1,6 +1,3 @@
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
-
 ;; use UTF-8
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)

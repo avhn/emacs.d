@@ -1,16 +1,18 @@
-(setq custom-file "~/.emacs.d/lisp/custom.el")
-(when (file-exists-p custom-file)
-  (load custom-file))
-
 ;; enable MELPA
 (require 'package)
 (add-to-list 'package-archives
              (cons "melpa" "https://melpa.org/packages/") t)
-
 (package-initialize)
 
-(load "config/defaults")
-(load "config/bindings")
-(load "config/modes")
-(load "config/python")
+;; use $PATH from shell for macOS GUI
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
+(load "defaults")
+(load "bindings")
+(load "modes")
+(load "python")
+
+(setq custom-file "~/.emacs.d/lisp/custom.el")
+(when (file-exists-p custom-file)
+  (load custom-file))
