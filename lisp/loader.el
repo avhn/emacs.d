@@ -11,7 +11,6 @@
 (load "defaults")
 (load "bindings")
 (load "modes")
-(load "python")
 
 (setq custom-file "~/.emacs.d/lisp/custom.el")
 (when (file-exists-p custom-file)
