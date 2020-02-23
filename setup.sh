@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
-if [ $(pwd) != "$HOME/.emacs.d" ]
+cd $(dirname $0)
+if [[ ! -f $HOME/.emacs.d && ! -d $HOME/.emacs.d ]]
 then
-    ln -s $(pwd) $HOME/.emacs.d
+    echo "Copying files"
+    cp -r $(dirname $0) $HOME/.emacs.d
+else
+    echo "There's already a file or directory exists at $HOME/.emacs.d"
 fi
 
-emacs -nw --load install_libraries.el
+if [ -f $HOME/.emacs.d/install_libraries.el ]
+then
+    emacs -nw --load $HOME/.emacs.d/install_libraries.el
+else
+    echo "No suitable .el file to install libraries"
+fi

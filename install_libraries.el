@@ -6,10 +6,5 @@
     (package-install 'exec-path-from-shell))
 (package-install 'flycheck)
 (package-install 'elpy)
-(package-install 'kotlin-mode)
-
-(package-install 'go-mode)
-(package-install 'go-rename)
-(package-install 'go-guru)
 
 (save-buffers-kill-emacs)
