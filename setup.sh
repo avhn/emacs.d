@@ -15,3 +15,8 @@ then
 else
     echo "No suitable .el file to install libraries"
 fi
+
+# install golang binaries
+go get golang.org/x/tools/cmd/...
+go get github.com/rogpeppe/godef
+go get -u github.com/nsf/gocode # go-autocomplete binaries
