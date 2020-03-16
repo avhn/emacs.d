@@ -9,5 +9,6 @@
 (package-install 'elpy)
 (package-install 'go-mode)
 (package-install 'go-autocomplete)
+(package-install 'meghanada)
 
 (save-buffers-kill-emacs)

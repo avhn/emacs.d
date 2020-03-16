@@ -7,22 +7,22 @@
       column-number-mode t
       indent-tabs-mode nil
       tab-width 4
-      default-directory "~/"
-      python-shell-interpreter "python3"
-      python-shell-interpreter-args "-i")
+      default-directory "~/")
 
-(defun font-exists-p (font)
-  "Check if font exits"
-  (if (null (x-list-fonts font)) nil t))
+;; set font
+(when (member "Fira Code Retina" (font-family-list))
+  (set-default-font "Fira Code Retina"))
 
-(if (font-exists-p "Fira Code Retina")
-    (set-default-font "Fira Code Retina"))
- 
+;; set ui
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
       (menu-bar-mode -1)
       (scroll-bar-mode -1)
       (load-theme 'deeper-blue t))
-  ;; else
+  ;; terminal
   (load-theme 'manoj-dark t))
+
+
+
+
