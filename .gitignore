@@ -11,6 +11,9 @@ tramp
 # Meghanada-mode
 meghanada
 
+# Go-mode
+ac-comphist.dat
+
 # Org-mode
 .org-id-locations
 *_archive
