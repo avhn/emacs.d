@@ -17,6 +17,9 @@ else
 fi
 
 # install golang binaries
-go get golang.org/x/tools/cmd/...
-go get github.com/rogpeppe/godef
-go get -u github.com/nsf/gocode # go-autocomplete binaries
+if [[ "$(which go)" != "" ]] # check path
+then
+    go get golang.org/x/tools/cmd/...
+    go get github.com/rogpeppe/godef
+    go get -u github.com/nsf/gocode # go-autocomplete binaries
+fi
