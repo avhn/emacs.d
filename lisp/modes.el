@@ -50,7 +50,8 @@
 (defun meghanada-java-hook ()
   (meghanada-mode t)
   (flycheck-mode +1)
-  (setq basic-offset 2)
+  (setq c-basic-offset 2
+        tab-width 2)
   (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)
   ;; prepare environment vars for meghanada-server
   (cond
@@ -63,7 +64,3 @@
   )
 
 (add-hook 'java-mode-hook 'meghanada-java-hook)
-
-
-
-
