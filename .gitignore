@@ -8,6 +8,9 @@ auto-save-list
 tramp
 .\#*
 
+# Meghanada-mode
+meghanada
+
 # Org-mode
 .org-id-locations
 *_archive
