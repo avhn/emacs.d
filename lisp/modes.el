@@ -2,12 +2,10 @@
           (lambda()
             (setq indent-tabs-mode t)))
 
-
 (add-hook 'c-mode-hook
           (lambda()
             (setq c-default-style "linux"
                   c-basic-offset 2)))
-
 
 (add-hook 'latex-mode-hook
           (lambda()
@@ -16,8 +14,8 @@
 
 ;; Python mode ;;
 
-(require 'elpy)
 (defun elpy-python3-hook ()
+  (require 'elpy)
   (setq indent-tabs-mode nil
         python-indent 4
         python-shell-interpreter "python3"
@@ -27,9 +25,10 @@
 
 (add-hook 'python-mode-hook 'elpy-python3-hook)
 
-;;; Go mode config ;;;
+;;; Go mode ;;;
 
-(defun go-hook ()
+(defun golang-go-hook ()
+  (require 'go-mode)
   (auto-complete-mode 1)
   (add-hook 'before-save-hook 'gofmt-before-save)
   ; Compile command customization
@@ -37,7 +36,7 @@
       (set (make-local-variable 'compile-command)
            "go build -v && go test -v && go vet")))
 
-(add-hook 'go-mode-hook 'go-hook)
+(add-hook 'go-mode-hook 'golang-go-hook)
 
 ; github.com/nsf/gocode required
 (with-eval-after-load 'go-mode
@@ -45,9 +44,8 @@
 
 ;;; Java mode ;;;
 
-(require 'meghanada)
-
 (defun meghanada-java-hook ()
+  (require 'meghanada)
   (meghanada-mode t)
   (flycheck-mode +1)
   (setq c-basic-offset 2
