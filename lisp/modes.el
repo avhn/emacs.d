@@ -14,15 +14,18 @@
             (setq LaTeX-indent-level 4
                   LaTeX-item-indent 2)))
 
+;; Python mode ;;
 
-(add-hook 'python-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil
-                  python-indent 4
-                  python-shell-interpreter "python3"
-                  python-shell-interpreter-args "-i"
-                  elpy-rpc-python-command "python3")
-            (elpy-enable)))
+(require 'elpy)
+(defun elpy-python3-hook ()
+  (setq indent-tabs-mode nil
+        python-indent 4
+        python-shell-interpreter "python3"
+        python-shell-interpreter-args "-i"
+        elpy-rpc-python-command "python3")
+  (elpy-enable))
+
+(add-hook 'python-mode-hook 'elpy-python3-hook)
 
 ;;; Go mode config ;;;
 

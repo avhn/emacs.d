@@ -4,7 +4,7 @@
              (cons "melpa" "https://melpa.org/packages/") t)
 (package-initialize)
 
-;; use $PATH from shell for macOS GUI
+;; use $PATH from shell for macOS gui
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
