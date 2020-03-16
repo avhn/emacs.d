@@ -11,7 +11,12 @@
       python-shell-interpreter "python3"
       python-shell-interpreter-args "-i")
 
-(set-default-font "Source Code Pro")
+(defun font-exists-p (font)
+  "Check if font exits"
+  (if (null (x-list-fonts font)) nil t))
+
+(if (font-exists-p "Fira Code Retina")
+    (set-default-font "Fira Code Retina"))
  
 (if (display-graphic-p)
     (progn
