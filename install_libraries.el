@@ -10,5 +10,6 @@
 (package-install 'go-mode)
 (package-install 'go-autocomplete)
 (package-install 'meghanada)
-
+(package-install 'markdown-mode)
+ 
 (save-buffers-kill-emacs)

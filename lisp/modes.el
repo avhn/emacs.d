@@ -12,6 +12,14 @@
             (setq LaTeX-indent-level 4
                   LaTeX-item-indent 2)))
 
+;; MarkDown mode ;;
+
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (require 'markdown-mode)
+            ;; set MultiMarkdown via pandoc
+            (setq markdown-command "pandoc")))
+
 ;; Python mode ;;
 
 (defun elpy-python3-hook ()
