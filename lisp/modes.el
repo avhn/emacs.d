@@ -14,11 +14,17 @@
 
 ;; MarkDown mode ;;
 
+;; If mode not installed, opens in fundamental mode with minor warning
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 (add-hook 'markdown-mode-hook
           (lambda ()
-            (require 'markdown-mode)
-            ;; set MultiMarkdown via pandoc
-            (setq markdown-command "pandoc")))
+            ;; use pandoc as markdown processor
+            (setq markdown-command "pandoc")
+            ))
 
 ;; Python mode ;;
 
