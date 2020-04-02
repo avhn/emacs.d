@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+RED="\033[0;31m"
 
 cd $(dirname $0)
 if [[ ! -f $HOME/.emacs.d && ! -d $HOME/.emacs.d ]]; then
@@ -11,7 +12,7 @@ fi
 if [ -f $HOME/.emacs.d/install_libraries.el ]; then
     emacs -nw --load $HOME/.emacs.d/install_libraries.el
 else
-    echo "No suitable .el file found to install libraries"
+    echo "${RED}No suitable .el file found to install libraries"
 fi
 
 # install golang binaries
@@ -20,15 +21,14 @@ if [[ "$(which go)" != "" ]]; then # check path
     go get github.com/rogpeppe/godef
     go get -u github.com/nsf/gocode # go-autocomplete binaries
 else
-    echo "Golang binary doesn't found in path"
+    echo "${RED}Golang binary not found in path"
 fi
 
 # use pandoc for markdown conversion
 if [[ ! $(which pandoc) ]]; then
     if [[ ! $OS_TYPE == "darwin"* ]] || [[ ! $(which brew) ]] \
            || [[ ! $(brew install pandoc) ]]; then
-        RED="\033[0;31m"
-        echo "${RED}pandoc not installed, install pandoc for markdown support."
+        echo "${RED}pandoc not installed, install for markdown support"
     fi
 fi
 
