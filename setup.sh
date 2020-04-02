@@ -23,11 +23,10 @@ else
     echo "Golang binary doesn't found in path"
 fi
 
-
 # use pandoc for markdown conversion
 if [[ ! $(which pandoc) ]]; then
-    if [[ ! $OS_TYPE == "darwin"* ]] || [[ ! $(which brew) ]]
-                    || [[ ! $(brew install pandoc) ]]; then
+    if [[ ! $OS_TYPE == "darwin"* ]] || [[ ! $(which brew) ]] \
+           || [[ ! $(brew install pandoc) ]]; then
         RED="\033[0;31m"
         echo "${RED}pandoc not installed, install pandoc for markdown support."
     fi
