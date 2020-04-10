@@ -22,9 +22,11 @@
 
 (add-hook 'markdown-mode-hook
           (lambda ()
+            ;; hard-wrap at 90
+            (auto-fill-mode)
+            (setq fill-column 90)
             ;; use pandoc as markdown processor
-            (setq markdown-command "pandoc")
-            ))
+            (setq markdown-command "pandoc")))
 
 ;; Python mode ;;
 
