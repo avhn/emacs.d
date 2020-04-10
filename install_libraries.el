@@ -11,5 +11,6 @@
 (package-install 'go-autocomplete)
 (package-install 'meghanada)
 (package-install 'markdown-mode)
+(package-install 'yaml-mode)
  
 (save-buffers-kill-emacs)
