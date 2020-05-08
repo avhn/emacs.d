@@ -48,8 +48,11 @@
   :commands yas-minor-mode
   :hook (go-mode . yas-minor-mode))
 
+(use-package go-mode
+  :ensure t)
+
 (use-package markdown-mode
-  :ensure 
+  :ensure t
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
@@ -62,7 +65,6 @@
 ;;; bindings
 
 (define-key global-map [remap list-buffers] 'buffer-menu-other-window)
-
 
 ;;; hooks
 
