@@ -8,11 +8,8 @@ auto-save-list
 tramp
 .\#*
 
-# Meghanada-mode
-meghanada
-
-# Go-mode
-ac-comphist.dat
+# lsp-mode
+.lsp-session*
 
 # Org-mode
 .org-id-locations
@@ -24,9 +21,6 @@ ac-comphist.dat
 # eshell files
 /eshell/history
 /eshell/lastdir
-
-# elpy
-elpy
 
 # elpa packages
 /elpa/
@@ -55,34 +49,6 @@ flycheck_*.el
 
 # network security
 /network-security.data
-
-
-### Intellij ###
-.idea
-*.iml
-*.ipr
-
-# CMake
-cmake-build-*/
-
-# File-based project format
-*.iws
-
-# IntelliJ
-out/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
-
-# JIRA plugin
-atlassian-ide-plugin.xml
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
-
 
 ### Linux ###
 
@@ -125,25 +91,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-### Vim ###
-# Swap
-[._]*.s[a-v][a-z]
-[._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
-[._]sw[a-p]
-
-# Session
-Session.vim
-Sessionx.vim
-
-# Temporary
-.netrwhist
-# Auto-generated tag files
-tags
-# Persistent undo
-[._]*.un~
 
 ### Other ###
 custom.el
