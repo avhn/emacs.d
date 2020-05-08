@@ -11,7 +11,7 @@ fi
 
 # install python lsp
 if [[ "$(which pip3)" != "" ]]; then
-    pip3 install 'python-language-server[all]'
+    pip3 install --user 'python-language-server[all]'
 else
     echo "${RED}pip3 not found in path"
 fi
