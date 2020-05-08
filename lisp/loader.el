@@ -1,17 +1,92 @@
-;; enable MELPA
-(require 'package)
-(add-to-list 'package-archives
-             (cons "melpa" "https://melpa.org/packages/") t)
-(package-initialize)
+(eval-when-compile
+  (unless (require 'use-package nil t)
+    (package-refresh-contents)
+    (package-install 'use-package)
+    (require 'use-package)))
 
 ;; use $PATH from shell for macOS gui
-(when (memq window-system '(mac ns x))
+(use-package exec-path-from-shell
+  :if (memq window-system '(mac ns))
+  :ensure t
+  :config
   (exec-path-from-shell-initialize))
 
-(load "defaults")
-(load "bindings")
-(load "modes")
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :hook (go-mode . lsp-deferred))
+
+;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;; Optional - provides fancier overlays.
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
+
+;; Company mode is a standard completion package that works well with lsp-mode.
+(use-package company
+  :ensure t
+  :config
+  ;; Optionally enable completion-as-you-type behavior.
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1))
+
+;; company-lsp integrates company mode completion with lsp-mode.
+;; completion-at-point also works out of the box but doesn't support snippets.
+(use-package company-lsp
+  :ensure t
+  :commands company-lsp)
+
+;; Optional - provides snippet support.
+(use-package yasnippet
+  :ensure t
+  :commands yas-minor-mode
+  :hook (go-mode . yas-minor-mode))
+
+(use-package markdown-mode
+  :ensure 
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (lambda()
+          ;;; use pandoc
+          (setq markdown-command "pandoc")
+          (auto-fill-mode)
+          (setq fill-column 90)))
+
+;;; bindings
+
+(define-key global-map [remap list-buffers] 'buffer-menu-other-window)
+
+
+;;; hooks
+
+(add-hook 'emacs-lisp-mode-hook
+          (lambda()
+            (company-mode)))
+
+(add-hook 'makefile-mode-hook
+          (lambda()
+            (setq indent-tabs-mode t)))
+
+(add-hook 'c-mode-hook
+          (lambda()
+            (setq c-default-style "linux"
+                  c-basic-offset 2)))
+
+(add-hook 'latex-mode-hook
+          (lambda()
+            (setq LaTeX-indent-level 4
+                  LaTeX-item-indent 2)))
+
+;; custom file
 
 (setq custom-file "~/.emacs.d/lisp/custom.el")
-(when (file-exists-p custom-file)
-  (load custom-file))
+(load custom-file)
+(load "defaults")
+
